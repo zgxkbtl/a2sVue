@@ -5,7 +5,7 @@ const echoProxy = ref(true)
 const randomCallBack = ref(true)
 const proxyAddr = ref("")
 const callBackAddr = ref("")
-const API_URL_PREFIX = 'http://alley.luobotou.org:8000'
+const API_URL_PREFIX = 'https://alley.luobotou.org:8000'
 
 async function create(event) {
     const API_URL = API_URL_PREFIX + `/a2s/create`

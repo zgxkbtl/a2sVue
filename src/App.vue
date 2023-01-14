@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, watch  } from 'vue'
 import A2SCreatorVue from './components/A2SCreator.vue';
-const API_URL = "http://alley.luobotou.org:8000"
+const API_URL = "https://alley.luobotou.org:8000"
 
 const tableData = ref([])
 const drawer = ref(false)

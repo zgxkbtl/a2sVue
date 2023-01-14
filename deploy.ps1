@@ -1,6 +1,7 @@
 npm run build
 cd .\dist
 echo > .nojekyll 'nojekyll'
+echo 'zgxkbtl.luobotou.org' > CNAME
 git init
 git checkout -B main
 git add -A
