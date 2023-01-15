@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Check, Close } from '@element-plus/icons-vue'
+const emit = defineEmits(['isCreated'])
 const echoProxy = ref(true)
 const randomCallBack = ref(true)
 const proxyAddr = ref("")
@@ -23,6 +24,7 @@ async function create(event) {
         body: JSON.stringify(req_body)
     })
     console.log(await res.json())
+    emit('isCreated')
 }
 </script>
 

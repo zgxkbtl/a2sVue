@@ -5,6 +5,7 @@ const API_URL = "https://alley.luobotou.org:8000"
 
 const tableData = ref([])
 const drawer = ref(false)
+const requestUrl = ref(API_URL + '/a2s/request/')
 
 const refreshList = async () => {
   const item = await (await fetch(API_URL + '/a2s/list')).json()
@@ -42,7 +43,11 @@ const deleteById = async (id) => {
             <el-table-column prop="expire" label="Expire" width="140" />
             <!-- <el-table-column prop="callBackAddr" label="CallBack" /> -->
             <el-table-column prop="proxyAddr" label="ProxyAddr" />
-            <el-table-column prop="requestID" label="Address" />
+            <el-table-column prop="requestID" label="Address" >
+              <template #default="scope">
+                {{ requestUrl + scope.row.requestID }}
+              </template>
+            </el-table-column>
             <el-table-column prop="requestID" label="Address">
               <template #default="scope">
                 <el-button type="danger" @click="deleteById(scope.row)">delete</el-button>
@@ -54,7 +59,7 @@ const deleteById = async (id) => {
         <el-drawer v-model="drawer" title="I am the title" :with-header="false" size="50%">
           <span>######Create New#######</span>
           <div>
-            <A2SCreatorVue></A2SCreatorVue>
+            <A2SCreatorVue @isCreated="drawer = false"></A2SCreatorVue>
           </div>
         </el-drawer>
       </el-main>
